@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "serverURL": "http://127.0.0.1:1337/rest",
+      "graphQLServerURL": "http://127.0.0.1:1337/graphql",
+      "appId": "appidappidappid",
+      "masterKey": "masterkeymasterkeymasterkey",
+      "appName": "Parse-Server-Scratchpad"
+    }
+  ]
+}

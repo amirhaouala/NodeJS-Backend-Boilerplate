@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "42Crunch.vscode-openapi",
+    "usernamehw.errorlens",
+    "mhutchie.git-graph"
+  ]
+}

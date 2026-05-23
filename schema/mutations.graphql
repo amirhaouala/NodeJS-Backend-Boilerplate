@@ -1,0 +1,24 @@
+type Query {
+  """
+  hello description.
+  """
+  hello: ReturnType @resolve
+}
+
+type Mutation {
+  """
+  asyncFunction description.
+  """
+  asyncFunction: ReturnType @resolve
+}
+
+type ReturnType {
+  status: StatusEnum!
+}
+
+enum StatusEnum {
+  OK
+  ERROR
+  MISSING_PEMISSIONS
+  VALIDATION_ERROR
+}

@@ -1,0 +1,153 @@
+openapi: 3.0.0
+servers:
+  - url: http://localhost:1337/rest
+    description: Parse Server Scratchpad REST API
+info:
+  title: API
+  version: '0.1'
+
+paths:
+  # Testing
+  /functions/hello:
+    description: hello
+    post:
+      tags:
+        - 'Testing'
+      responses:
+        '200':
+          description: Successful
+
+  /functions/test:
+    description: test
+    post:
+      tags:
+        - 'Testing'
+      responses:
+        '200':
+          description: Successful
+
+  /functions/bootstrap:
+    description: bootstrap
+    post:
+      tags:
+        - 'Testing'
+      responses:
+        '200':
+          description: Successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - username
+                - password
+              properties:
+                username:
+                  default: username
+                password:
+                  default: password
+
+  /functions/dropAll:
+    description: dropAll
+    post:
+      tags:
+        - 'Testing'
+      responses:
+        '200':
+          description: Successful
+
+  # Auth
+  /login:
+    description: Login
+    post:
+      tags:
+        - 'Auth'
+      parameters:
+        - in: query
+          name: username
+          schema:
+            type: string
+        - in: query
+          name: password
+          schema:
+            type: string
+      description: Get session token
+      responses:
+        '200':
+          description: Successful
+        '404':
+          description: Invalid username/password
+
+  /logout:
+    description: Login
+    post:
+      tags:
+        - 'Auth'
+      responses:
+        '200':
+          description: Successful
+
+  /functions/signUp:
+    description: Signup
+    post:
+      tags:
+        - 'Auth'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - username
+                - password
+              properties:
+                username:
+                  default: username
+                password:
+                  default: password
+                roleName:
+                  default: roleName
+
+      responses:
+        '200':
+          description: Successful
+
+  /functions/newRole:
+    description: Add a new role
+    post:
+      tags:
+        - 'Auth'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - roleName
+              properties:
+                roleName:
+                  default: roleName
+      responses:
+        '200':
+          description: Successful
+
+components:
+  securitySchemes:
+    X-Parse-Application-Id:
+      type: apiKey
+      in: header
+      name: X-Parse-Application-Id
+    X-Parse-Session-Token:
+      type: apiKey
+      in: header
+      name: X-Parse-Session-Token
+security:
+  - X-Parse-Application-Id: []
+  - X-Parse-Session-Token: []
+
+tags:
+  - name: 'Testing'
+    description: 'Testing Tag'
+  - name: 'Auth'
+    description: 'Auth Tag'
